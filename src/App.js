@@ -43,6 +43,8 @@ function App() {
   return (
     <div className="App">
      <div className="main-div">
+      <h5>Fields and Barns</h5>
+
       <h1>The new way to hire event space in the outdoors</h1>
       <h2>Sign up to hear updates</h2>
      </div>
@@ -57,7 +59,7 @@ function App() {
         success &&
         <p>{success}</p>
        }
-       <Button primary onClick={(e) => storeEmail()}>Sign up</Button>
+       <Button primary onClick={(e) => storeEmail() } disabled={!email}>Sign up</Button>
      </div>
     </div>
   );
