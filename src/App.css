@@ -6,12 +6,12 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  overflow: hidden;
 }
 
 .main-div{
+  background-color: #232b2b;
+
   min-width: 100px;
-  background-color: black;
   min-height: 100px;
   max-width: 800px;
   margin: 0 auto;
@@ -20,9 +20,51 @@ html {
   padding: 10px 25px;
   font-family: 'Raleway', sans-serif;
   font-size: 30px;
+  margin-left: 5%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
+
+
 
 h2{
   font-size: 20px;
+  max-width: 425px;
   color:blanchedalmond;
+}
+
+
+.email-input{
+  background-color: #232b2b;
+  min-width: 100px;
+  min-height: 50px;
+  max-width: 270px;
+  padding: 10px 25px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .email-input{
+    margin-left: 10px;
+    margin-right: 10px;
+
+  }
+}
+
+@media screen and (min-width: 851px) {
+  .email-input{
+    margin-left: 10px;
+    margin-right: 10px;  }
+
+}
+
+input{
+  padding: 10px;
+  width:250px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 30px;
+  outline:none;
+  border:none
 }
