@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
 
@@ -17,6 +17,29 @@ const Button = styled.button`
 
 
 function App() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+
+
+  const checkEmail = () => {
+    const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regexp.test(email);
+
+  }
+  const storeEmail = () =>{
+    if (!email){
+      setError('No Email entered')
+    }
+    else if(!checkEmail()){
+      setError('Email incorrect format')
+    }
+    else{
+      setError("")
+      setSuccess('Sign up successfull')
+    }
+  }
   return (
     <div className="App">
      <div className="main-div">
@@ -25,8 +48,16 @@ function App() {
      </div>
 
      <div className="email-input">
-       <input type="text" placeholder="Email Address" />
-       <Button primary>Sign up</Button>
+       <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email Address" />
+       { 
+        error &&
+        <p>{error}</p>
+       }
+       { 
+        success &&
+        <p>{success}</p>
+       }
+       <Button primary onClick={(e) => storeEmail()}>Sign up</Button>
      </div>
     </div>
   );
