@@ -7,7 +7,6 @@ html {
   background-repeat: no-repeat;
   background-position: center center;
   font-family: 'Raleway', sans-serif;
-
 }
 
 .main-div{
@@ -52,6 +51,9 @@ h2{
   border-radius:2px;
 }
 
+
+
+
 @media screen and (max-width: 850px) {
   .email-input{
     margin-left: 10px;
@@ -70,6 +72,12 @@ h2{
   .email-input{
     margin-left: 30px;
     margin-right: 30px;  
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .email-input{
+    margin-bottom:30px;
   }
 }
 
