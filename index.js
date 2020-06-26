@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import { getSecret } from './secrets.js';
 import path from 'path';
+import SignUp from './SignUp.js';
+
 const __dirname = path.resolve();
 
 const app = express();
@@ -37,6 +39,31 @@ router.get('/test', (req, res) => {
     res.json({ message: 'Hello, World!' });
 });
 
+router.post('/addEmail', (req, res) => {
+    const signups = new SignUp();
+    console.log(req.body)
+    // body parser lets us use the req.body
+    const { email } = req.body;
+    if (!email) {
+        // we should throw an error. we can do this check on the front end
+        return res.json({
+            success: false,
+            error: 'Sorry something is wrong with the form'
+        });
+    }
+    signups.email = email;
+    signups.save(err => {
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ success: true });
+    });
+});
+
+router.get('/signups', (req, res) => {
+    SignUp.find((err, signups) => {
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ ...signups });
+    });
+});
 
 // router.get('/comments', (req, res) => {
 //     Comment.find((err, comments) => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
+import axios from 'axios';
 
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
@@ -36,10 +37,27 @@ function App() {
       setError('Email incorrect format')
     }
     else{
+      console.log('hjere')
+      postEmail()
       setError("")
       setSuccess('Sign up successfull')
     }
   }
+
+  const postEmail = () => {
+    console.log('attempting')
+  
+    fetch('http://localhost:5001/api/addEmail', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({email: email})
+    }).then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      console.log('email successfully added')
+    });
+  }
+
   return (
     <div className="App">
      <div className="main-div">
