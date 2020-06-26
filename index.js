@@ -11,7 +11,7 @@ const __dirname = path.resolve();
 const app = express();
 const router = express.Router();
 
-const API_PORT = process.env.API_PORT || 5001;
+const API_PORT = process.env.API_PORT || 5000;
 
 var options = {
     server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
