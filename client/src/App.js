@@ -47,7 +47,7 @@ function App() {
   const postEmail = () => {
     console.log('attempting')
   
-    fetch('http://localhost:5001/api/addEmail', {
+    fetch('/api/addEmail', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({email: email})
