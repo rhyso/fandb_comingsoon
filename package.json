@@ -32,7 +32,7 @@
   ],
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js --exec babel-node",
+    "start": "nodemon index.js --exec babel-node forever start -c --minUptime 1000 --spinSleepTime 1000",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "devDependencies": {
